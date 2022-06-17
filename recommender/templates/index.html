@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SuggestMe | Get Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: "Fira Sans";
+        }
+        
+        .heading {
+            color: white
+        }
+    </style>
+</head>
+
+<body style="background-color: #333333">
+    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #159e93">
+        <a class="navbar-brand mx-2" href="#">
+            <h3>SuggestMe</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recommend">Book Recommendation</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-4">
+        <div class="row px-3">
+            <div class="col-md-12">
+                <h1 class="heading">Top 50 Books</h1>
+            </div>
+
+            {% for i in range(book_name|length) %}
+            <div class="col-md-2 mx-2">
+                <div class="card my-2" style="width: 13rem; ">
+                    <img class="card-img-top" src="{{image[i]}}" alt="{{book_name[i]}}">
+                    <div class="card-body ">
+                        <b class="card-text my-1"><p>{{book_name[i]}}</b></p>
+                        <p class='my-1'>Author: {{author[i]}}</p>
+                        <p class='my-1'>Votes : {{votes[i]}}</p>
+                        <p class='my-1'>Rating : {{rating[i]|round(1)}}</p>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
